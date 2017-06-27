@@ -13,6 +13,7 @@
 
 #ifndef MINMAXFUNCTIONOVERLOAD_H_
 #define MINMAXFUNCTIONOVERLOAD_H_
+
 #include <memory>
 #include <functional>
 ////////////////////////////////////////////////////////////////////////////////
@@ -71,4 +72,4 @@ constexpr T findMax(const T& first, const U&... args) noexcept
 
 }  // namespace minMaxFunctionOverload
 
-#endif /* DUMMYLIB_H */
+#endif /* MINMAXFUNCTIONOVERLOAD_H_ */
