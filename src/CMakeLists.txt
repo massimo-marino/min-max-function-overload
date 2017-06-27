@@ -165,7 +165,7 @@ MESSAGE( STATUS )
 
 # ------------------------- End of Generic CMake Variable Logging ------------------
 
-SET( sources_list min-max-function-overload.cc )
+SET( sources_list min-max-function-overload.cpp )
 
 ADD_LIBRARY( min-max-function-overload ${sources_list} )
 

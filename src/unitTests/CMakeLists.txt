@@ -166,7 +166,7 @@ MESSAGE( STATUS )
 
 # ------------------------- End of Generic CMake Variable Logging ------------------
 
-SET( sources_list unitTests.cc )
+SET( sources_list unitTests.cpp )
 
 ADD_EXECUTABLE( unitTests ${sources_list} )
 
