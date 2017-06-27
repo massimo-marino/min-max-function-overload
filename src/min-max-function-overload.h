@@ -70,6 +70,48 @@ constexpr T findMax(const T& first, const U&... args) noexcept
   return create_max<T>().get()->operator()(first, args...);
 }
 
+
+template <typename T>
+class min
+{
+  public:
+    constexpr T operator() (const T& arg) const noexcept
+    {
+      return arg;
+    }
+    
+    T operator() (const T& arg1, const T& arg2) const noexcept
+    {
+      if ( arg1 < arg2 )
+      {
+        return arg1;
+      }
+      return arg2;
+    }
+    
+    template<typename... U>
+    constexpr T operator() (const T& first, const U&... args) const noexcept
+    {
+      return this->operator()(first, (const T&)(this->operator()(args...)));
+    }
+};  // class min
+
+// create a class min object for type T and return a std::unique_ptr to it
+template <typename T>
+std::unique_ptr<min<T>> create_min() noexcept
+{
+  std::unique_ptr<min<T>> local_ptr(new min<T>);
+  return local_ptr; // local_ptr will surrender ownership;
+                    // the compiler should optimize the return as if it was:
+                    // return std::move(local_ptr);
+}
+
+template<typename T, typename... U>
+constexpr T findMin(const T& first, const U&... args) noexcept
+{
+  return create_min<T>().get()->operator()(first, args...);
+}
+
 }  // namespace minMaxFunctionOverload
 
 #endif /* MINMAXFUNCTIONOVERLOAD_H_ */
