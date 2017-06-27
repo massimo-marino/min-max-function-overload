@@ -26,7 +26,7 @@ public:
   
   static std::string version;
   static std::string minMaxFunctionOverloadVersion () noexcept;
-};  // class dummyLib
+};  // class minMaxFunctionOverload
 
 template <typename T>
 class max
