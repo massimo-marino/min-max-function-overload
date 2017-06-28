@@ -25,7 +25,6 @@ TEST(minMaxFunctionOverload, T1)
   minMaxFunctionOverload::min<int> mn;
   auto MN = mn(7);
   ASSERT_THAT(MN, Eq(7));
-
 }
 
 TEST(minMaxFunctionOverload, T2)
