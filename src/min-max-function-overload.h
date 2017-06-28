@@ -37,7 +37,7 @@ class max
     {
       return arg;
     }
-    
+
     T operator() (const T& arg1, const T& arg2) const noexcept
     {
       if ( arg1 < arg2 )
@@ -46,7 +46,7 @@ class max
       }
       return arg1;
     }
-    
+
     template<typename... U>
     T operator() (const T& first, const U&... args) const noexcept
     {
@@ -65,7 +65,7 @@ std::unique_ptr<max<T>> create_max() noexcept
 }
 
 template<typename T, typename... U>
-T findMax(const T& first, const U&... args) noexcept
+constexpr T findMax(const T& first, const U&... args) noexcept
 {
   return create_max<T>().get()->operator()(first, args...);
 }
@@ -79,7 +79,7 @@ class min
     {
       return arg;
     }
-    
+
     T operator() (const T& arg1, const T& arg2) const noexcept
     {
       if ( arg1 < arg2 )
@@ -88,7 +88,7 @@ class min
       }
       return arg2;
     }
-    
+
     template<typename... U>
     T operator() (const T& first, const U&... args) const noexcept
     {
@@ -107,7 +107,7 @@ std::unique_ptr<min<T>> create_min() noexcept
 }
 
 template<typename T, typename... U>
-T findMin(const T& first, const U&... args) noexcept
+constexpr T findMin(const T& first, const U&... args) noexcept
 {
   return create_min<T>().get()->operator()(first, args...);
 }
